@@ -1,8 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
-import "./index.css";
 import { routeTree } from "@/routeTree.gen";
+import "@mantine/core/styles.css";
+import "@/app/styles/_mantine.scss";
+import "./index.css";
+import { MantineProvider } from "@mantine/core";
 
 // Create a new router instance
 const router = createRouter({ routeTree });
@@ -16,6 +19,12 @@ declare module "@tanstack/react-router" {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <MantineProvider
+      theme={{
+        fontFamily: '"EB Garamond", sans-serif',
+      }}
+    >
+      <RouterProvider router={router} />
+    </MantineProvider>
   </StrictMode>,
 );

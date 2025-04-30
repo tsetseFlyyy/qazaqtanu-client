@@ -14,6 +14,7 @@ import { Route as rootRoute } from './app/routes/__root'
 import { Route as IndexImport } from './app/routes/index'
 import { Route as AuthSignUpRouteImport } from './app/routes/auth/sign-up/route'
 import { Route as AuthSignInRouteImport } from './app/routes/auth/sign-in/route'
+import { Route as AuthRecoveryPasswordRouteImport } from './app/routes/auth/recovery-password/route'
 
 // Create/Update Routes
 
@@ -35,6 +36,12 @@ const AuthSignInRouteRoute = AuthSignInRouteImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const AuthRecoveryPasswordRouteRoute = AuthRecoveryPasswordRouteImport.update({
+  id: '/auth/recovery-password',
+  path: '/auth/recovery-password',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -44,6 +51,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/recovery-password': {
+      id: '/auth/recovery-password'
+      path: '/auth/recovery-password'
+      fullPath: '/auth/recovery-password'
+      preLoaderRoute: typeof AuthRecoveryPasswordRouteImport
       parentRoute: typeof rootRoute
     }
     '/auth/sign-in': {
@@ -67,12 +81,14 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth/recovery-password': typeof AuthRecoveryPasswordRouteRoute
   '/auth/sign-in': typeof AuthSignInRouteRoute
   '/auth/sign-up': typeof AuthSignUpRouteRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth/recovery-password': typeof AuthRecoveryPasswordRouteRoute
   '/auth/sign-in': typeof AuthSignInRouteRoute
   '/auth/sign-up': typeof AuthSignUpRouteRoute
 }
@@ -80,27 +96,35 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/auth/recovery-password': typeof AuthRecoveryPasswordRouteRoute
   '/auth/sign-in': typeof AuthSignInRouteRoute
   '/auth/sign-up': typeof AuthSignUpRouteRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth/sign-in' | '/auth/sign-up'
+  fullPaths: '/' | '/auth/recovery-password' | '/auth/sign-in' | '/auth/sign-up'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth/sign-in' | '/auth/sign-up'
-  id: '__root__' | '/' | '/auth/sign-in' | '/auth/sign-up'
+  to: '/' | '/auth/recovery-password' | '/auth/sign-in' | '/auth/sign-up'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth/recovery-password'
+    | '/auth/sign-in'
+    | '/auth/sign-up'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRecoveryPasswordRouteRoute: typeof AuthRecoveryPasswordRouteRoute
   AuthSignInRouteRoute: typeof AuthSignInRouteRoute
   AuthSignUpRouteRoute: typeof AuthSignUpRouteRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRecoveryPasswordRouteRoute: AuthRecoveryPasswordRouteRoute,
   AuthSignInRouteRoute: AuthSignInRouteRoute,
   AuthSignUpRouteRoute: AuthSignUpRouteRoute,
 }
@@ -116,12 +140,16 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/auth/recovery-password",
         "/auth/sign-in",
         "/auth/sign-up"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/auth/recovery-password": {
+      "filePath": "auth/recovery-password/route.tsx"
     },
     "/auth/sign-in": {
       "filePath": "auth/sign-in/route.tsx"
