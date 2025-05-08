@@ -926,6 +926,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.74.9":
+  version: 5.74.9
+  resolution: "@tanstack/query-core@npm:5.74.9"
+  checksum: 10c0/2794554b780c576229aaab35086f44656866ae484c04a8efb5b5dd3fac1605a8421098d53f54a9986ab0e2c447a4e38fd9d9ed590aaaed206552c457495fef1a
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.74.11":
+  version: 5.74.11
+  resolution: "@tanstack/react-query@npm:5.74.11"
+  dependencies:
+    "@tanstack/query-core": "npm:5.74.9"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10c0/fed029c10517656166041a2cc71eef8fb19e73e4cd0d363c7f26feb6f23d5d7cff3b32548870d84fb1197808a556d93f9a7c2d402d44ac214c4bc433f3c70951
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-router-devtools@npm:^1.117.1":
   version: 1.117.1
   resolution: "@tanstack/react-router-devtools@npm:1.117.1"
@@ -1552,6 +1570,7 @@ __metadata:
     "@mantine/form": "npm:^7.17.5"
     "@mantine/hooks": "npm:^7.17.5"
     "@tabler/icons-react": "npm:^3.31.0"
+    "@tanstack/react-query": "npm:^5.74.11"
     "@tanstack/react-router": "npm:^1.117.1"
     "@tanstack/react-router-devtools": "npm:^1.117.1"
     "@tanstack/router-plugin": "npm:^1.117.2"
@@ -1559,6 +1578,7 @@ __metadata:
     "@types/react": "npm:^19.0.10"
     "@types/react-dom": "npm:^19.0.4"
     "@vitejs/plugin-react": "npm:^4.3.4"
+    dotenv: "npm:^16.5.0"
     eslint: "npm:^9.22.0"
     eslint-plugin-react-hooks: "npm:^5.2.0"
     eslint-plugin-react-refresh: "npm:^0.4.19"
@@ -1677,6 +1697,13 @@ __metadata:
   version: 7.0.0
   resolution: "diff@npm:7.0.0"
   checksum: 10c0/251fd15f85ffdf814cfc35a728d526b8d2ad3de338dcbd011ac6e57c461417090766b28995f8ff733135b5fbc3699c392db1d5e27711ac4e00244768cd1d577b
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.5.0":
+  version: 16.5.0
+  resolution: "dotenv@npm:16.5.0"
+  checksum: 10c0/5bc94c919fbd955bf0ba44d33922a1e93d1078e64a1db5c30faeded1d996e7a83c55332cb8ea4fae5a9ca4d0be44cbceb95c5811e70f9f095298df09d1997dd9
   languageName: node
   linkType: hard
 

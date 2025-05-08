@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 30px;
+  color: #deceab;
+  font-family: "Alex Brush";
+  font-weight: 400;
+}
+
+.header {
+  background-color: #2222;
+  position: fixed;
+}
+
+.navbar-item {
+  color: #b0b0b0;
+}
